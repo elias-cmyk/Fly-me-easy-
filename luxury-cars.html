@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090A">
+<meta name="description" content="TAKE ME LUXE — Luxury car rental enquiries, curated for exceptional journeys.">
+<title>Luxury Cars | TAKE ME LUXE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#09090A;
+  --panel:#151518;
+  --gold:#D5B26C;
+  --goldlight:#F1D79C;
+  --text:#F8F5EE;
+  --muted:#B8B1A8;
+  --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(1180px,92%);margin:auto}
+
+nav{
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:10;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  background:rgba(9,9,10,.45);
+  backdrop-filter:blur(14px);
+}
+.logo{
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:4px;
+}
+.logo span{color:var(--gold)}
+.back{
+  border:1px solid rgba(213,178,108,.5);
+  padding:12px 20px;
+  border-radius:30px;
+  color:var(--goldlight);
+  font-size:13px;
+}
+.back:hover{background:rgba(213,178,108,.12)}
+
+.hero{
+  min-height:740px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  padding:150px 0 110px;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(9,9,10,.96) 0%,rgba(9,9,10,.64) 48%,rgba(9,9,10,.25) 100%),
+    linear-gradient(0deg,#09090A,transparent 35%),
+    url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=2000&q=90")
+    center/cover no-repeat;
+}
+.hero-content{position:relative;z-index:2}
+.eyebrow{
+  color:var(--goldlight);
+  letter-spacing:4px;
+  font-size:12px;
+  text-transform:uppercase;
+}
+h1,h2,h3{font-family:"Cormorant Garamond",serif}
+h1{
+  font-size:clamp(75px,11vw,145px);
+  font-weight:500;
+  line-height:.85;
+  letter-spacing:-3px;
+  margin:30px 0;
+}
+h1 em{
+  color:var(--goldlight);
+  font-weight:400;
+}
+.hero p{
+  max-width:570px;
+  font-size:16px;
+  line-height:1.9;
+  color:#D1CBC3;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  border-radius:40px;
+  padding:17px 28px;
+  background:linear-gradient(120deg,var(--goldlight),var(--gold));
+  color:#111;
+  font-weight:600;
+  margin-top:25px;
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-3px)}
+section{padding:95px 0}
+.section-title{
+  font-size:clamp(48px,6vw,78px);
+  font-weight:500;
+  margin:18px 0;
+  line-height:1;
+}
+.subtitle{
+  max-width:680px;
+  color:var(--muted);
+  line-height:1.85;
+}
+.search-panel{
+  margin-top:45px;
+  padding:38px;
+  background:linear-gradient(135deg,#19191D,#101012);
+  border:1px solid rgba(213,178,108,.3);
+  border-radius:26px;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.field{display:flex;flex-direction:column;gap:10px}
+.field.full{grid-column:1/-1}
+label{
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--goldlight);
+}
+input,select,textarea{
+  width:100%;
+  background:#0D0D10;
+  color:white;
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  outline:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--gold);
+}
+textarea{min-height:110px;resize:vertical}
+.form-submit{
+  width:100%;
+  margin-top:10px;
+}
+.note{
+  color:#A7A098;
+  font-size:12px;
+  line-height:1.8;
+  margin-top:20px;
+}
+.collection{
+  background:linear-gradient(180deg,#09090A,#121214);
+}
+.collection-box{
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:75px 30px;
+  text-align:center;
+  background:radial-gradient(circle at top,rgba(213,178,108,.08),transparent 65%);
+}
+.collection-box h3{
+  font-size:clamp(38px,5vw,60px);
+  font-weight:500;
+  margin:15px 0;
+}
+.collection-box p{
+  color:var(--muted);
+  max-width:610px;
+  margin:0 auto;
+  line-height:1.9;
+}
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:45px;
+}
+.feature{
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:#141417;
+}
+.feature .number{
+  font-size:12px;
+  letter-spacing:3px;
+  color:var(--goldlight);
+}
+.feature h3{
+  font-size:32px;
+  font-weight:500;
+  margin:18px 0 10px;
+}
+.feature p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14px;
+}
+footer{
+  padding:55px 5%;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+.footer-name{
+  font-family:"Cormorant Garamond",serif;
+  font-size:32px;
+}
+footer p{font-size:12px;color:var(--muted)}
+footer a{color:var(--goldlight)}
+@media(max-width:700px){
+  nav{height:72px;padding:0 5%}
+  .logo{font-size:12px;letter-spacing:2px}
+  .back{padding:10px 12px;font-size:11px}
+  .hero{min-height:650px}
+  h1{font-size:76px}
+  section{padding:70px 0}
+  .search-panel{padding:23px}
+  .form-grid,.features{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .collection-box{padding:55px 22px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="index.html">
+    TAKE ME <span>LUXE</span>
+  </a>
+  <a class="back" href="index.html">
+    ← Main Website
+  </a>
+</nav>
+
+<header class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow">TAKE ME LUXE • Private Collection</div>
+    <h1>Luxury<br><em>Cars.</em></h1>
+    <p>
+      Exceptional journeys deserve exceptional vehicles.
+      Discover a more personal way to request premium,
+      exotic and luxury car rentals.
+    </p>
+    <a class="btn" href="#enquiry">Explore Your Options →</a>
+  </div>
+</header>
+
+<section id="enquiry">
+  <div class="container">
+    <div class="eyebrow">THE PRIVATE REQUEST</div>
+    <h2 class="section-title">Find your perfect drive.</h2>
+    <p class="subtitle">
+      Tell us what you're looking for. We'll review your request
+      and explore suitable options with our rental partners,
+      subject to availability.
+    </p>
+
+    <div class="search-panel">
+      <form id="carForm">
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="destination">Destination</label>
+            <select id="destination" required>
+              <option value="">Select destination</option>
+              <option value="Ibiza">Ibiza</option>
+              <option value="Marbella">Marbella</option>
+              <option value="Other destination">Other destination</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="category">Vehicle Category</label>
+            <select id="category" required>
+              <option value="">Select category</option>
+              <option>Supercar</option>
+              <option>Luxury SUV</option>
+              <option>Executive / Luxury Sedan</option>
+              <option>Convertible</option>
+              <option>Sports Car</option>
+              <option>Other Premium Vehicle</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="pickup">Pick-up Date</label>
+            <input type="date" id="pickup" required>
+          </div>
+
+          <div class="field">
+            <label for="returnDate">Return Date</label>
+            <input type="date" id="returnDate" required>
+          </div>
+
+          <div class="field">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName"
+              placeholder="Your full name" required>
+          </div>
+
+          <div class="field">
+            <label for="customerEmail">Email Address</label>
+            <input type="email" id="customerEmail"
+              placeholder="you@example.com" required>
+          </div>
+
+          <div class="field full">
+            <label for="details">Your Preferences</label>
+            <textarea id="details"
+              placeholder="Preferred vehicle, delivery location, driver requirements or special requests..."></textarea>
+          </div>
+
+          <div class="field full">
+            <button class="btn form-submit" type="submit">
+              Prepare My Enquiry →
+            </button>
+          </div>
+
+        </div>
+      </form>
+
+      <p class="note">
+        This button opens your email application with a prepared
+        enquiry. Please send the email to complete your request.
+        No booking is confirmed at this stage. Vehicle availability,
+        pricing, deposits and rental conditions are subject to
+        confirmation by the relevant provider.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="container">
+    <div class="collection-box">
+      <div class="eyebrow">THE CURATED COLLECTION</div>
+      <h3>Something extraordinary is coming.</h3>
+      <p>
+        We're developing our luxury vehicle collection
+        with selected rental partners. Individual vehicle
+        listings will be introduced once the necessary
+        details and permissions are confirmed.
+      </p>
+      <a class="btn" href="#enquiry">
+        Make a Private Enquiry →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">THE EXPERIENCE</div>
+    <h2 class="section-title">Beyond the ordinary.</h2>
+    <p class="subtitle">
+      A refined enquiry experience designed around your
+      destination, schedule and preferred driving style.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="number">01 / SELECT</div>
+        <h3>Your Destination</h3>
+        <p>
+          Tell us where your journey begins and
+          when you need your vehicle.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="number">02 / PERSONALIZE</div>
+        <h3>Your Preferences</h3>
+        <p>
+          Choose your preferred category and
+          share the details that matter to you.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="number">03 / EXPLORE</div>
+        <h3>Your Options</h3>
+        <p>
+          Relevant options and rental terms can
+          be discussed after supplier confirmation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-name">TAKE ME LUXE</div>
+    <p>Private Travel, Reimagined.</p>
+  </div>
+  <div>
+    <p>© <span id="year"></span> TAKE ME LUXE</p>
+    <a href="index.html">Return to Main Website →</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const pickup = document.getElementById("pickup");
+const returnDate = document.getElementById("returnDate");
+
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth()+1).padStart(2,"0"),
+  String(today.getDate()).padStart(2,"0")
+].join("-");
+
+pickup.min = localToday;
+returnDate.min = localToday;
+
+pickup.addEventListener("change",function(){
+  returnDate.min = pickup.value || localToday;
+  if(returnDate.value && returnDate.value <= pickup.value){
+    returnDate.value = "";
+  }
+});
+
+document.getElementById("carForm")
+.addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const destination =
+    document.getElementById("destination").value;
+  const category =
+    document.getElementById("category").value;
+  const pick =
+    pickup.value;
+  const ret =
+    returnDate.value;
+  const name =
+    document.getElementById("customerName").value.trim();
+  const email =
+    document.getElementById("customerEmail").value.trim();
+  const details =
+    document.getElementById("details").value.trim();
+
+  if(ret <= pick){
+    alert("Please select a return date after the pick-up date.");
+    return;
+  }
+
+  const subject = "Luxury Car Enquiry - TAKE ME LUXE";
+
+  const body =
+`TAKE ME LUXE - LUXURY CAR ENQUIRY
+
+Name: ${name}
+Email: ${email}
+Destination: ${destination}
+Vehicle Category: ${category}
+Pick-up Date: ${pick}
+Return Date: ${ret}
+
+Preferences:
+${details || "Not specified"}
+
+Please contact me regarding available options and terms.`;
+
+  window.location.href =
+    "mailto:takemeluxe@gmail.com?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+});
+</script>
+
+</body>
+</html>

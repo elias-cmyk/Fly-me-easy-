@@ -1000,6 +1000,137 @@
     </div>
   </section>
 
+<!-- TAKE ME LUXE — LUXURY CARS -->
+<section class="section" id="luxury-cars">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">THE PRIVATE COLLECTION</div>
+        <h2>Drive extraordinary.</h2>
+      </div>
+      <p class="section-intro">
+        Discover exceptional luxury vehicles through our
+        carefully selected rental partners.
+      </p>
+    </div>
+
+    <div style="background:linear-gradient(145deg,#19191D,#101012);
+                border:1px solid var(--goldline);
+                border-radius:26px;padding:30px;">
+
+      <div style="display:grid;
+                  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+                  gap:16px;">
+
+        <div class="field">
+          <label for="carLocation">Destination</label>
+          <select id="carLocation">
+            <option value="">All destinations</option>
+            <option value="Ibiza">Ibiza</option>
+            <option value="Marbella">Marbella</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="carCategory">Vehicle category</label>
+          <select id="carCategory">
+            <option value="">All luxury vehicles</option>
+            <option value="Supercar">Supercars</option>
+            <option value="Luxury SUV">Luxury SUVs</option>
+            <option value="Executive">Executive</option>
+            <option value="Convertible">Convertibles</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="carPickup">Pick-up date</label>
+          <input type="date" id="carPickup">
+        </div>
+
+        <div class="field">
+          <label for="carReturn">Return date</label>
+          <input type="date" id="carReturn">
+        </div>
+
+      </div>
+
+      <div style="margin-top:24px;text-align:center;">
+        <button class="btn btn-primary"
+                type="button"
+                onclick="searchLuxuryCars()">
+          Explore Vehicles →
+        </button>
+      </div>
+
+    </div>
+
+    <div id="luxuryCarResults"
+         style="margin-top:35px;
+                border:1px solid var(--line);
+                border-radius:24px;
+                padding:45px 25px;
+                text-align:center;
+                background:rgba(255,255,255,.015);">
+
+      <div class="eyebrow">CURATED VEHICLE COLLECTION</div>
+
+      <h3 style="font-family:'Cormorant Garamond',serif;
+                 font-size:2.5rem;
+                 margin:18px 0;">
+        Our collection is coming soon.
+      </h3>
+
+      <p class="muted" style="max-width:550px;
+                             margin:0 auto 25px;
+                             line-height:1.8;">
+        We are currently establishing partnerships with
+        selected luxury vehicle operators.
+        Verified vehicle listings will appear here
+        as our collection becomes available.
+      </p>
+
+      <a class="btn btn-ghost" href="#request">
+        Contact TAKE ME LUXE
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+function searchLuxuryCars() {
+  const location = document.getElementById("carLocation").value;
+  const category = document.getElementById("carCategory").value;
+  const pickup = document.getElementById("carPickup").value;
+  const returnDate = document.getElementById("carReturn").value;
+
+  if (pickup && returnDate && returnDate <= pickup) {
+    alert("Please select a return date after the pick-up date.");
+    return;
+  }
+
+  const results = document.getElementById("luxuryCarResults");
+
+  results.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  const filters = [
+    location || "All destinations",
+    category || "All luxury vehicles"
+  ].join(" · ");
+
+  results.querySelector("p").textContent =
+    "Selected: " + filters +
+    ". Our verified vehicle collection is being prepared. " +
+    "Please contact us for further information.";
+}
+</script>
+<!-- END LUXURY CARS -->
+
   <section class="section" id="how">
     <div class="container">
 

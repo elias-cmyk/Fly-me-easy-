@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private Jets | TAKE ME LUXE</title>
+<meta name="description" content="Discover private aviation with TAKE ME LUXE.">
+
+<style>
+:root {
+  --bg:#08090b;
+  --gold:#d9b979;
+  --white:#f8f5ee;
+  --muted:#aaa7a0;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,sans-serif;
+}
+a {color:inherit;text-decoration:none}
+header {
+  height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 7%;
+  background:#08090b;
+}
+.logo {
+  font-size:15px;
+  letter-spacing:4px;
+  font-weight:bold;
+}
+.logo span {
+  color:var(--gold);
+  border:1px solid #7b6139;
+  border-radius:50%;
+  padding:12px;
+  margin-right:14px;
+}
+.back {
+  color:var(--gold);
+  border:1px solid #6d5535;
+  padding:13px 22px;
+  border-radius:40px;
+  font-size:13px;
+}
+.hero {
+  min-height:620px;
+  display:flex;
+  align-items:center;
+  padding:90px 7%;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.18)),
+    linear-gradient(0deg,#08090b,transparent 35%),
+    url("https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1800&q=90")
+    center/cover no-repeat;
+}
+.hero-content {max-width:850px}
+.eyebrow {
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:12px;
+  text-transform:uppercase;
+}
+h1,h2 {
+  font-family:Georgia,serif;
+  font-weight:normal;
+}
+h1 {
+  font-size:clamp(65px,9vw,125px);
+  line-height:.98;
+  letter-spacing:-3px;
+  margin:35px 0;
+}
+h1 em {color:var(--gold);font-style:normal}
+.hero p {
+  max-width:560px;
+  color:#dedbd5;
+  line-height:1.9;
+  font-size:16px;
+}
+.section {
+  max-width:1250px;
+  margin:auto;
+  padding:100px 7%;
+}
+h2 {
+  font-size:clamp(42px,6vw,75px);
+  line-height:1.1;
+  margin:20px 0 45px;
+}
+.intro {
+  color:var(--muted);
+  line-height:1.9;
+  max-width:650px;
+}
+.form-card {
+  margin-top:50px;
+  border:1px solid #40372a;
+  border-radius:22px;
+  padding:38px;
+  background:#101114;
+}
+.trip-options {
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+  color:var(--gold);
+}
+.trip-options label {cursor:pointer}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+.field label {
+  display:block;
+  font-size:12px;
+  letter-spacing:2px;
+  color:var(--gold);
+  margin-bottom:12px;
+  text-transform:uppercase;
+}
+input,select,textarea {
+  width:100%;
+  background:#191a1e;
+  color:white;
+  border:1px solid #383633;
+  border-radius:10px;
+  padding:16px;
+  font-size:15px;
+  font-family:Arial,sans-serif;
+}
+input:focus,select:focus,textarea:focus {
+  outline:1px solid var(--gold);
+}
+input[type="radio"] {width:auto}
+.full {grid-column:1/-1}
+button {
+  width:100%;
+  padding:19px;
+  background:var(--gold);
+  color:#111;
+  border:0;
+  border-radius:12px;
+  font-size:14px;
+  letter-spacing:2px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:28px;
+}
+button:hover {background:#f0d49b}
+.note {
+  font-size:12px;
+  color:#999;
+  line-height:1.8;
+  margin-top:20px;
+}
+footer {
+  text-align:center;
+  padding:40px;
+  border-top:1px solid #292929;
+  color:#8d8d8d;
+  font-size:12px;
+  letter-spacing:2px;
+}
+@media(max-width:650px) {
+  header {padding:0 5%;height:75px}
+  .logo {font-size:11px;letter-spacing:2px}
+  .logo span {padding:9px;margin-right:7px}
+  .back {padding:10px;font-size:11px}
+  .hero {min-height:530px;padding:60px 6%}
+  h1 {letter-spacing:-2px}
+  .section {padding:70px 6%}
+  .form-card {padding:22px}
+  .grid {grid-template-columns:1fr}
+  .full {grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <span>T</span> TAKE ME LUXE
+  </a>
+  <a href="index.html" class="back">← Back to Home</a>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">The Private Aviation Collection</div>
+    <h1>Above<br><em>the ordinary.</em></h1>
+    <p>
+      Experience a new standard of private aviation.
+      From effortless departures to exceptional destinations,
+      every journey begins with you.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Your Journey, Your Way</div>
+  <h2>Explore the<br>extraordinary.</h2>
+  <p class="intro">
+    Tell us where you want to fly. Share your route,
+    travel dates and passenger details to begin
+    exploring private aviation possibilities.
+  </p>
+
+  <div class="form-card">
+    <form id="jetForm">
+      <div class="trip-options">
+        <label>
+          <input type="radio" name="trip" value="One-way" checked>
+          One-way
+        </label>
+        <label>
+          <input type="radio" name="trip" value="Round-trip">
+          Round-trip
+        </label>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label>Departure Airport / City</label>
+          <input name="departure" placeholder="e.g. London" required>
+        </div>
+
+        <div class="field">
+          <label>Arrival Airport / City</label>
+          <input name="arrival" placeholder="e.g. Ibiza" required>
+        </div>
+
+        <div class="field">
+          <label>Departure Date</label>
+          <input type="date" name="date" required>
+        </div>
+
+        <div class="field" id="returnField" hidden>
+          <label>Return Date</label>
+          <input type="date" name="returnDate" id="returnDate">
+        </div>
+
+        <div class="field">
+          <label>Passengers</label>
+          <select name="passengers" required>
+            <option value="">Select passengers</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9+</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Aircraft Preference</label>
+          <select name="aircraft">
+            <option>Any luxury aircraft</option>
+            <option>Light Jet</option>
+            <option>Midsize Jet</option>
+            <option>Heavy Jet</option>
+            <option>Ultra Long Range Jet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Your Name</label>
+          <input name="name" required placeholder="Full name">
+        </div>
+
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" name="email" required placeholder="you@example.com">
+        </div>
+
+        <div class="field full">
+          <label>Additional Requests</label>
+          <textarea name="notes" rows="4" placeholder="Special requests or preferences"></textarea>
+        </div>
+      </div>
+
+      <button type="submit">PREPARE MY FLIGHT REQUEST →</button>
+
+      <p class="note">
+        Requests are subject to aircraft availability,
+        operator confirmation and final pricing.
+        This form does not confirm a reservation.
+      </p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 TAKE ME LUXE · PRIVATE AVIATION
+</footer>
+
+<script>
+const form = document.getElementById("jetForm");
+const returnField = document.getElementById("returnField");
+const returnDate = document.getElementById("returnDate");
+
+document.querySelectorAll('input[name="trip"]').forEach(radio => {
+  radio.addEventListener("change", () => {
+    const roundTrip =
+      document.querySelector('input[name="trip"]:checked').value
+      === "Round-trip";
+
+    returnField.hidden = !roundTrip;
+    returnDate.required = roundTrip;
+    if (!roundTrip) returnDate.value = "";
+  });
+});
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const data = new FormData(form);
+  const lines = [
+    "TAKE ME LUXE - PRIVATE JET REQUEST",
+    "",
+    "Trip: " + data.get("trip"),
+    "From: " + data.get("departure"),
+    "To: " + data.get("arrival"),
+    "Departure: " + data.get("date"),
+    "Return: " + (data.get("returnDate") || "N/A"),
+    "Passengers: " + data.get("passengers"),
+    "Aircraft: " + data.get("aircraft"),
+    "Name: " + data.get("name"),
+    "Email: " + data.get("email"),
+    "Notes: " + (data.get("notes") || "None")
+  ];
+
+  const request = lines.join("\n");
+  const subject = "Private Jet Request - TAKE ME LUXE";
+
+  window.location.href =
+    "mailto:?subject=" + encodeURIComponent(subject)
+    + "&body=" + encodeURIComponent(request);
+});
+</script>
+
+</body>
+</html>

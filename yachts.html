@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090A">
+<meta name="description" content="Explore private yacht experiences with TAKE ME LUXE.">
+<title>Luxury Yachts | TAKE ME LUXE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#09090A;
+  --panel:#161619;
+  --gold:#D5B26C;
+  --goldlight:#F1D79C;
+  --text:#F8F5EE;
+  --muted:#B8B1A8;
+  --line:rgba(255,255,255,.12);
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+}
+
+a { text-decoration:none; color:inherit; }
+
+.container {
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+nav {
+  height:82px;
+  display:flex;
+  align-items:center;
+  background:rgba(9,9,10,.95);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(16px);
+}
+
+.nav-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  width:100%;
+}
+
+.brand {
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:3px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.logo {
+  width:37px;
+  height:37px;
+  border:1px solid rgba(213,178,108,.5);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:"Cormorant Garamond",serif;
+  font-size:24px;
+  color:var(--goldlight);
+}
+
+.back {
+  border:1px solid rgba(213,178,108,.4);
+  border-radius:30px;
+  padding:12px 20px;
+  color:var(--goldlight);
+  font-size:13px;
+  transition:.3s;
+}
+
+.back:hover {
+  background:rgba(213,178,108,.1);
+}
+
+.hero {
+  min-height:550px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(9,9,10,.88),rgba(9,9,10,.25)),
+    linear-gradient(0deg,#09090A,transparent 40%),
+    url("https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=2000&q=85")
+    center/cover no-repeat;
+}
+
+.hero-content {
+  position:relative;
+  max-width:800px;
+  padding:80px 0;
+  animation:rise 1s ease both;
+}
+
+.eyebrow {
+  color:var(--goldlight);
+  letter-spacing:4px;
+  font-size:11px;
+  text-transform:uppercase;
+}
+
+h1,h2,h3 {
+  font-family:"Cormorant Garamond",serif;
+  font-weight:600;
+}
+
+h1 {
+  font-size:clamp(70px,10vw,132px);
+  line-height:.85;
+  letter-spacing:-3px;
+  margin:25px 0;
+}
+
+h1 span { color:var(--goldlight); }
+
+.hero p {
+  color:#D8D2C9;
+  line-height:1.9;
+  max-width:540px;
+  font-size:16px;
+}
+
+.section {
+  padding:90px 0;
+}
+
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:35px;
+  margin-bottom:35px;
+}
+
+.section-head h2 {
+  font-size:clamp(46px,6vw,78px);
+  margin:14px 0 0;
+  line-height:.98;
+}
+
+.section-head p {
+  color:var(--muted);
+  line-height:1.8;
+  max-width:420px;
+}
+
+.search-panel {
+  border:1px solid rgba(213,178,108,.35);
+  border-radius:28px;
+  padding:35px;
+  background:linear-gradient(140deg,#1B1B1E,#101012);
+  box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.search-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.field label {
+  display:block;
+  font-size:11px;
+  color:#BFB8AD;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.field select,
+.field input {
+  width:100%;
+  padding:15px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:13px;
+  background:#111114;
+  color:white;
+  font-family:Inter,sans-serif;
+  font-size:14px;
+  outline:none;
+  min-height:50px;
+  color-scheme:dark;
+}
+
+.field select:focus,
+.field input:focus {
+  border-color:var(--gold);
+}
+
+.search-actions {
+  display:flex;
+  justify-content:center;
+  margin-top:28px;
+}
+
+.gold-btn {
+  border:0;
+  border-radius:40px;
+  background:linear-gradient(135deg,#F1D79C,#D5B26C);
+  color:#101012;
+  padding:17px 35px;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+  transition:.25s;
+  font-family:Inter,sans-serif;
+}
+
+.gold-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(213,178,108,.2);
+}
+
+.results {
+  margin-top:35px;
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:55px 25px;
+  text-align:center;
+  background:linear-gradient(140deg,#141416,#0D0D0F);
+}
+
+.results h3 {
+  font-size:clamp(36px,5vw,48px);
+  margin:15px 0;
+}
+
+.results p {
+  max-width:550px;
+  margin:0 auto 25px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.outline-btn {
+  display:inline-block;
+  border:1px solid rgba(213,178,108,.45);
+  padding:14px 24px;
+  border-radius:30px;
+  color:var(--goldlight);
+  font-size:13px;
+  transition:.25s;
+}
+
+.outline-btn:hover {
+  background:rgba(213,178,108,.1);
+}
+
+.features {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.feature {
+  padding:35px;
+  border:1px solid var(--line);
+  border-radius:23px;
+  background:#131316;
+}
+
+.feature .number {
+  font-size:12px;
+  color:var(--goldlight);
+  letter-spacing:2px;
+}
+
+.feature h3 {
+  font-size:32px;
+  margin:18px 0 12px;
+}
+
+.feature p {
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14px;
+}
+
+.banner {
+  min-height:360px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:
+    linear-gradient(rgba(9,9,10,.72),rgba(9,9,10,.85)),
+    url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.banner h2 {
+  font-size:clamp(48px,7vw,85px);
+  margin:15px 0;
+}
+
+.banner p {
+  color:#D5CFC5;
+  line-height:1.8;
+}
+
+footer {
+  border-top:1px solid var(--line);
+  padding:45px 0;
+  text-align:center;
+  color:#999188;
+  font-size:12px;
+  line-height:2;
+}
+
+footer strong {
+  display:block;
+  font-family:"Cormorant Garamond",serif;
+  color:white;
+  font-size:34px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s,transform .7s;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes rise {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media(max-width:900px) {
+  .search-grid { grid-template-columns:repeat(2,1fr); }
+  .features { grid-template-columns:1fr; }
+}
+
+@media(max-width:600px) {
+  .brand { font-size:11px; letter-spacing:1.5px; }
+  .back { padding:10px 13px; font-size:11px; }
+  .hero { min-height:480px; }
+  .search-grid { grid-template-columns:1fr; }
+  .search-panel { padding:23px; }
+  .section { padding:65px 0; }
+  .section-head { display:block; }
+  .results { padding:38px 18px; }
+  h1 { font-size:76px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span class="logo">T</span>
+      TAKE ME LUXE
+    </a>
+
+    <a class="back" href="index.html">
+      ← Back to Home
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">
+        THE PRIVATE YACHT COLLECTION
+      </div>
+
+      <h1>
+        Beyond<br>
+        <span>the horizon.</span>
+      </h1>
+
+      <p>
+        Discover extraordinary journeys at sea.
+        From intimate private escapes to exceptional
+        luxury yacht experiences, curated around you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="explore">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">THE YACHT EXPERIENCE</div>
+        <h2>Explore the extraordinary.</h2>
+      </div>
+
+      <p>
+        Select your destination, preferred yacht category
+        and travel details to begin exploring our collection.
+      </p>
+    </div>
+
+    <div class="search-panel reveal">
+
+      <div class="search-grid">
+
+        <div class="field">
+          <label for="destination">Destination</label>
+          <select id="destination">
+            <option value="">All destinations</option>
+            <option value="Ibiza">Ibiza</option>
+            <option value="Mykonos">Mykonos</option>
+            <option value="Dubai">Dubai</option>
+            <option value="French Riviera">French Riviera</option>
+            <option value="Mallorca">Mallorca</option>
+            <option value="Other destination">Other destination</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="yachtType">Yacht category</label>
+          <select id="yachtType">
+            <option value="">All yacht types</option>
+            <option value="Motor Yacht">Motor Yacht</option>
+            <option value="Superyacht">Superyacht</option>
+            <option value="Catamaran">Catamaran</option>
+            <option value="Sailing Yacht">Sailing Yacht</option>
+            <option value="Luxury Speedboat">Luxury Speedboat</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="departure">Departure date</label>
+          <input type="date" id="departure">
+        </div>
+
+        <div class="field">
+          <label for="guests">Guests</label>
+          <input type="number" id="guests" min="1" placeholder="Number of guests">
+        </div>
+
+      </div>
+
+      <div class="search-actions">
+        <button class="gold-btn" onclick="exploreYachts()">
+          Explore Yachts →
+        </button>
+      </div>
+
+    </div>
+
+    <div class="results reveal" id="yachtResults">
+
+      <div class="eyebrow">
+        CURATED YACHT COLLECTION
+      </div>
+
+      <h3>
+        Our collection is coming soon.
+      </h3>
+
+      <p id="resultsText">
+        We are establishing partnerships with selected
+        yacht operators. Verified yacht listings will
+        appear here as our collection becomes available.
+      </p>
+
+      <a class="outline-btn" id="contactLink"
+         href="mailto:takemeluxe@gmail.com?subject=Private%20Yacht%20Inquiry">
+        Contact TAKE ME LUXE
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">DISCOVER THE POSSIBILITIES</div>
+        <h2>Designed for the sea.</h2>
+      </div>
+
+      <p>
+        Private maritime experiences tailored to
+        different journeys, destinations and preferences.
+      </p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature reveal">
+        <div class="number">01 • DAY CHARTERS</div>
+        <h3>Escape for a day.</h3>
+        <p>
+          Explore private day charters for coastal
+          cruising, swimming and unforgettable
+          moments at sea.
+        </p>
+      </div>
+
+      <div class="feature reveal">
+        <div class="number">02 • LUXURY YACHTS</div>
+        <h3>Travel exceptionally.</h3>
+        <p>
+          Discover premium motor yachts and
+          superyacht experiences through
+          selected charter operators.
+        </p>
+      </div>
+
+      <div class="feature reveal">
+        <div class="number">03 • ISLAND JOURNEYS</div>
+        <h3>Explore without limits.</h3>
+        <p>
+          Plan beautiful island routes and
+          multi-day journeys, subject to
+          operator availability and itinerary.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="banner">
+  <div class="container reveal">
+
+    <div class="eyebrow">
+      TAKE ME LUXE
+    </div>
+
+    <h2>
+      The sea is yours to explore.
+    </h2>
+
+    <p>
+      A more personal way to experience luxury travel.
+    </p>
+
+    <a class="outline-btn" href="index.html">
+      Discover TAKE ME LUXE →
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>TAKE ME LUXE</strong>
+    Private Jets • Yachts • Luxury Cars
+    <p>
+      Yacht availability and pricing are subject to confirmation
+      by independent operators. Searches do not create reservations.
+    </p>
+    © <span id="year"></span> TAKE ME LUXE
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const today = new Date();
+const localToday =
+  today.getFullYear() + "-" +
+  String(today.getMonth() + 1).padStart(2,"0") + "-" +
+  String(today.getDate()).padStart(2,"0");
+
+document.getElementById("departure").min = localToday;
+
+function exploreYachts() {
+  const destination =
+    document.getElementById("destination").value;
+
+  const yachtType =
+    document.getElementById("yachtType").value;
+
+  const departure =
+    document.getElementById("departure").value;
+
+  const guests =
+    document.getElementById("guests").value;
+
+  if (departure && departure < localToday) {
+    alert("Please select a future departure date.");
+    return;
+  }
+
+  const selected = [
+    destination || "All destinations",
+    yachtType || "All yacht types"
+  ].join(" · ");
+
+  const text =
+    "Selected: " + selected +
+    (departure ? " · " + departure : "") +
+    (guests ? " · " + guests + " guests" : "") +
+    ". Our yacht collection is being prepared. " +
+    "Please contact us for further information.";
+
+  document.getElementById("resultsText").textContent = text;
+
+  const emailBody = [
+    "Hello TAKE ME LUXE,",
+    "",
+    "I would like to inquire about a private yacht.",
+    "",
+    "Destination: " + (destination || "Flexible"),
+    "Yacht category: " + (yachtType || "Flexible"),
+    "Departure date: " + (departure || "Not specified"),
+    "Guests: " + (guests || "Not specified"),
+    "",
+    "Please contact me with further information."
+  ].join("\n");
+
+  document.getElementById("contactLink").href =
+    "mailto:takemeluxe@gmail.com" +
+    "?subject=" + encodeURIComponent("Private Yacht Inquiry") +
+    "&body=" + encodeURIComponent(emailBody);
+
+  document.getElementById("yachtResults").scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.1});
+
+  document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach(el => {
+    el.classList.add("show");
+  });
+}
+</script>
+
+</body>
+</html>
